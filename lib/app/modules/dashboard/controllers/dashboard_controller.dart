@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:ujikom_adit/app/data/book_response.dart';
 import 'package:ujikom_adit/app/modules/dashboard/views/index_view.dart';
 import 'package:ujikom_adit/app/modules/dashboard/views/profile_view.dart';
-import 'package:ujikom_adit/app/modules/peminjam/views/peminjam_view.dart';
+import 'package:ujikom_adit/app/modules/peminjaman/views/peminjaman_view.dart';
 import 'package:ujikom_adit/app/utils/api.dart';
 
 class DashboardController extends GetxController {
@@ -18,7 +18,7 @@ class DashboardController extends GetxController {
 
   final List<Widget> pages = [
     IndexView(),
-    PeminjamView(),
+    PeminjamanView(),
     ProfileView(),
   ];
 

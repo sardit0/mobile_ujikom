@@ -8,8 +8,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/peminjam/bindings/peminjam_binding.dart';
-import '../modules/peminjam/views/peminjam_view.dart';
+import '../modules/peminjaman/bindings/peminjaman_binding.dart';
+import '../modules/peminjaman/views/peminjaman_view.dart';
 import '../modules/pengembalian/bindings/pengembalian_binding.dart';
 import '../modules/pengembalian/views/pengembalian_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -58,7 +58,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PEMINJAM,
-      page: () => const PeminjamView(),
+      page: () => const PeminjamanView(),
       binding: PeminjamBinding(),
     ),
     GetPage(

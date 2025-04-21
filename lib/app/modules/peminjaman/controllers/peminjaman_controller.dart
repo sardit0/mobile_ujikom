@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:ujikom_adit/app/modules/dashboard/controllers/dashboard_controller.dart';
 import 'package:ujikom_adit/app/utils/api.dart';
 
-class PeminjamController extends GetxController {
+class PeminjamanController extends GetxController {
  final _getConnect = GetConnect();
   final box = GetStorage();
   // final CartController cartController = Get.find();

@@ -1,11 +1,11 @@
-class BorrowResponse {
+class PeminjamanResponse {
   bool? success;
   String? message;
   List<Minjem>? minjem;
 
-  BorrowResponse({this.success, this.message, this.minjem});
+  PeminjamanResponse({this.success, this.message, this.minjem});
 
-  BorrowResponse.fromJson(Map<String, dynamic> json) {
+  PeminjamanResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
     if (json['minjem'] != null) {

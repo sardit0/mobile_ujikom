@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ujikom_adit/app/controllers/index_controller.dart';
+import 'package:ujikom_adit/app/data/book_response.dart' as br;
+import 'package:ujikom_adit/app/data/book_detail_response.dart' as bd;
+import 'package:ujikom_adit/app/modules/dashboard/views/book_detail_view.dart'; // pastikan path ini sesuai ya
 
 class IndexView extends GetView<IndexController> {
   const IndexView({super.key});
@@ -49,59 +52,65 @@ class IndexView extends GetView<IndexController> {
             ),
             itemCount: controller.daftarBuku.length,
             itemBuilder: (context, index) {
-              final buku = controller.daftarBuku[index];
-              return Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                elevation: 4,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
+              // final buku = controller.daftarBuku[index];
+               final br.Buku buku = controller.daftarBuku[index]; // 👉 INI DIAA
+              return GestureDetector(
+                onTap: () {
+                  Get.to(() => BookDetailView(buku: buku));
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
+                        ),
+                        child: Image.network(
+                          'http://127.0.0.1:8000/images/buku/${buku.image}',
+                          fit: BoxFit.cover,
+                          height: 250,
+                          width: double.infinity,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const SizedBox(
+                              height: 150,
+                              child: Center(child: Text('Image not found')),
+                            );
+                          },
+                        ),
                       ),
-                      child: Image.network(
-                        'https://picsum.photos/id/${buku.id}/200/300',
-                        fit: BoxFit.cover,
-                        height: 250,
-                        width: double.infinity,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const SizedBox(
-                            height: 150,
-                            child: Center(child: Text('Image not found')),
-                          );
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            buku.judul ?? '',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              buku.judul ?? '',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            '${buku.jumlahBuku} Buku tersedia',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
+                            const SizedBox(height: 4),
+                            Text(
+                              '${buku.jumlahBuku} Buku tersedia',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },
