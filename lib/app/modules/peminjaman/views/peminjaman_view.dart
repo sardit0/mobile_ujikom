@@ -15,7 +15,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
       ),
       body: const Center(
         child: Text(
-          'PeminjamView is working',
+          'PeminjamanView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ujikom_adit/app/modules/profile/controllers/profile_controller.dart';
+// import 'package:ujikom_flutter/app/routes/app_pages.dart';
 
 import 'app/routes/app_pages.dart';
 
@@ -22,10 +24,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Application",
+      title: "My Event",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       defaultTransition: Transition.fade,
+      scrollBehavior: MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown,
+        },
+      ),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
