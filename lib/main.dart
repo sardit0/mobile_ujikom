@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "My Event",
+      title: "Ujikom",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       defaultTransition: Transition.fade,

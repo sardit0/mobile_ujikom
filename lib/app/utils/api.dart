@@ -7,7 +7,9 @@ class BaseUrl {
   static String profile = '/api/profile';
   static String home = '/api/buku';
   static String addpeminjaman = '/api/minjem';
+  static String history = '/api/history';
 
   // static String home = '/api/home';
+  
 
 }
